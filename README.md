@@ -18,13 +18,13 @@ Teperature Sensor API canbe be used by a client connected to a temperature senso
 
 ### Build & Run
 
-**infastructure :** 
+**infastructure :**   
 docker-compose up .
 
 <br/>
 
 **application :**   
-./mvnw clean install
+./mvnw clean install  
 ./mvnw  spring-boot:run
  
  <br/>
