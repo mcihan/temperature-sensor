@@ -1,8 +1,8 @@
 package com.cihan.temperaturesensor.config;
 
 
-import com.cihan.temperaturesensor.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.cihan.temperaturesensor.domain.Temperature;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,9 +16,10 @@ import java.util.Map;
 
 
 @Configuration
+@RequiredArgsConstructor
 public class KafkaConfiguration {
-    @Autowired
-    private KafkaProperties kafkaProperties;
+
+    private final KafkaProperties kafkaProperties;
 
     @Bean
     public Map<String, Object> producerConfigs() {
@@ -32,23 +33,23 @@ public class KafkaConfiguration {
     }
 
     @Bean
-    public ProducerFactory<String, User> producerFactory() {
+    public ProducerFactory<String, Temperature> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
     @Bean
-    public ConsumerFactory<String, User> consumerFactory() {
+    public ConsumerFactory<String, Temperature> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerConfigs());
     }
 
     @Bean
-    public KafkaTemplate<String, User> kafkaTemplate() {
+    public KafkaTemplate<String, Temperature> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 
     @Bean
-    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, User>> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, User> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Temperature>> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, Temperature> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         factory.setReplyTemplate(kafkaTemplate());
         return factory;

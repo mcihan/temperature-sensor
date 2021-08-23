@@ -4,14 +4,17 @@ spring:
       enabled: true
       path: /h2
   datasource:
-    url: jdbc:h2:file:~/test
+    url: jdbc:h2:mem:testdb
     username: sa
     password:
     driverClassName: org.h2.Driver
   jpa:
     database: H2
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
   kafka:
     bootstrap-servers: localhost:9092
     producer:
@@ -27,6 +30,11 @@ spring:
           json:
             value:
               default:
-                type: com.cihan.temperaturesensor.model.User
-server:
-  port: 8585
+                type: com.cihan.temperaturesensor.domain.Temperature
+      max-poll-records: 3
+      fetch-max-wait: 2000
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
