@@ -1,7 +1,7 @@
 package com.cihan.temperaturesensor.controller;
 
-import com.cihan.temperaturesensor.domain.Temperature;
-import com.cihan.temperaturesensor.service.UserService;
+import com.cihan.temperaturesensor.domain.dto.Temperature;
+import com.cihan.temperaturesensor.service.ReportService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,12 +17,12 @@ import java.util.List;
 @Tag(name = "report", description = "Report Controller API")
 public class ReportController {
 
-    private final UserService userService;
+    private final ReportService reportService;
 
     @ResponseBody
     @GetMapping(value = "/temperatures")
     public ResponseEntity<List<Temperature>> collectTemperature() {
-        List<Temperature> temperatures = userService.collectTemperatures();
+        List<Temperature> temperatures = reportService.collectTemperatures();
         return ResponseEntity.status(HttpStatus.OK).body(temperatures);
     }
 
@@ -30,7 +30,7 @@ public class ReportController {
     @GetMapping(value = "/temperatures/by-time-range")
     public ResponseEntity<List<Temperature>> collectTemperatureByTime(@RequestParam("startDate") OffsetDateTime startDate,
                                                                       @RequestParam("endDate") OffsetDateTime endDate) {
-        List<Temperature> temperatures = userService.collectTemperaturesByTime(startDate, endDate);
+        List<Temperature> temperatures = reportService.collectTemperaturesByTime(startDate, endDate);
         return ResponseEntity.status(HttpStatus.OK).body(temperatures);
     }
 }

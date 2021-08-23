@@ -1,13 +1,12 @@
 package com.cihan.temperaturesensor.service;
 
-import com.cihan.temperaturesensor.domain.Temperature;
+import com.cihan.temperaturesensor.domain.dto.Temperature;
 import com.cihan.temperaturesensor.domain.TemperatureConstant;
 import com.cihan.temperaturesensor.repository.TemperatureRepository;
 import com.cihan.temperaturesensor.util.TemperatureMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,4 +1,4 @@
-package com.cihan.temperaturesensor.controller.dto;
+package com.cihan.temperaturesensor.domain.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
@@ -9,8 +9,8 @@ import java.time.OffsetDateTime;
 
 @Data
 @Builder
-@Schema(name = "PublishTemperatureRequest", description = "Publish Temperature Request")
-public class PublishTemperatureRequest {
+@Schema(name = "SendTemperatureRequest", description = "Send Temperature Request")
+public class SendTemperatureRequest {
 
     @Valid
     @NotNull
@@ -18,7 +18,7 @@ public class PublishTemperatureRequest {
 
     @Valid
     @NotNull
-    private Long value;
+    private Long temperatureValue;
 
     @Valid
     @NotNull

@@ -1,4 +1,4 @@
-package com.cihan.temperaturesensor.domain.model;
+package com.cihan.temperaturesensor.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,8 +18,8 @@ public class TemperatureEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "value", nullable = false)
-    private long value;
+    @Column(name = "temperatureValue", nullable = false)
+    private long temperatureValue;
 
     @Column(name = "sensorId", nullable = false)
     private String sensorId;

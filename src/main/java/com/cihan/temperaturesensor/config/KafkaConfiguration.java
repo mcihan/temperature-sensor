@@ -1,7 +1,7 @@
 package com.cihan.temperaturesensor.config;
 
 
-import com.cihan.temperaturesensor.domain.Temperature;
+import com.cihan.temperaturesensor.domain.dto.Temperature;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;

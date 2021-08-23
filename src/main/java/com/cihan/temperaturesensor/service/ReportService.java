@@ -1,6 +1,6 @@
 package com.cihan.temperaturesensor.service;
 
-import com.cihan.temperaturesensor.domain.Temperature;
+import com.cihan.temperaturesensor.domain.dto.Temperature;
 import com.cihan.temperaturesensor.repository.TemperatureRepository;
 import com.cihan.temperaturesensor.util.TemperatureMapper;
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class UserService {
+public class ReportService {
 
     private final TemperatureRepository temperatureRepository;
     private final TemperatureMapper temperatureMapper;

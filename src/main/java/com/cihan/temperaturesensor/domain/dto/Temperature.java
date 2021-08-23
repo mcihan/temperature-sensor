@@ -1,4 +1,4 @@
-package com.cihan.temperaturesensor.domain;
+package com.cihan.temperaturesensor.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +13,6 @@ import java.time.OffsetDateTime;
 @Builder
 public class Temperature {
     private String sensorId;
-    private Long value;
+    private Long temperatureValue;
     private OffsetDateTime startDate;
 }

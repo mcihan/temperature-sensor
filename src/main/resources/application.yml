@@ -30,7 +30,7 @@ spring:
           json:
             value:
               default:
-                type: com.cihan.temperaturesensor.domain.Temperature
+                type: com.cihan.temperaturesensor.domain.dto.Temperature
       max-poll-records: 3
       fetch-max-wait: 2000
 springdoc:

@@ -1,6 +1,6 @@
 package com.cihan.temperaturesensor.controller;
 
-import com.cihan.temperaturesensor.controller.dto.PublishTemperatureRequest;
+import com.cihan.temperaturesensor.domain.dto.SendTemperatureRequest;
 import com.cihan.temperaturesensor.service.SensorService;
 import com.cihan.temperaturesensor.util.TemperatureMapper;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -19,8 +19,8 @@ public class SensorController {
     private final SensorService sensorService;
 
     @ResponseBody
-    @PostMapping(value = "/publish")
-    public ResponseEntity publishTemperature(@RequestBody PublishTemperatureRequest request) {
+    @PostMapping(value = "/send")
+    public ResponseEntity publishTemperature(@RequestBody SendTemperatureRequest request) {
         sensorService.publishTemperature(temperatureMapper.toTemperature(request));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
