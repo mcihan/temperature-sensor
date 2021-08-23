@@ -1,7 +1,7 @@
 package com.cihan.temperaturesensor.service;
 
-import com.cihan.temperaturesensor.domain.dto.Temperature;
 import com.cihan.temperaturesensor.domain.TemperatureConstant;
+import com.cihan.temperaturesensor.domain.dto.Temperature;
 import lombok.AllArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;

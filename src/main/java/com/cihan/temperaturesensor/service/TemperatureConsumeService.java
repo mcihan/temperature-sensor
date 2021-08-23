@@ -1,7 +1,7 @@
 package com.cihan.temperaturesensor.service;
 
-import com.cihan.temperaturesensor.domain.dto.Temperature;
 import com.cihan.temperaturesensor.domain.TemperatureConstant;
+import com.cihan.temperaturesensor.domain.dto.Temperature;
 import com.cihan.temperaturesensor.repository.TemperatureRepository;
 import com.cihan.temperaturesensor.util.TemperatureMapper;
 import lombok.RequiredArgsConstructor;
