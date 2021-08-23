@@ -19,7 +19,4 @@ services:
       - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
     depends_on:
       - zookeeper
-
-networks:
-  app_net:
-    driver: bridge
+    restart: on-failure
